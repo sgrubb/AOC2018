@@ -1,0 +1,16 @@
+{
+  "name": "aoc2018",
+  "version": "1.0.0",
+  "description": "Advent of Code 2018 solutions",
+  "main": "index.js",
+  "scripts": {
+    "day1": "node src/day1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgrubb/AOC2018.git"
+  },
+  "author": "Sam Grubb",
+  "license": "ISC",
+  "dependencies": {}
+}
