@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const file = require('./utils/file');
 
 const findDuplicateFrequency = (frequencyChanges) => {
     let index = 0;
@@ -20,11 +20,7 @@ const findDuplicateFrequency = (frequencyChanges) => {
 }
 
 try {
-    const inputs = fs.readFileSync('inputs/day1.txt', 'utf-8');
-    
-    const frequencyChanges = inputs.toString().split('\n')
-        .map((input) => parseInt(input.trim()))
-        .filter((change) => Number.isInteger(change));
+    const frequencyChanges = file.readNumericInputs('day1');
     
     const endFrequency = frequencyChanges.reduce((total, change) => total + change, 0);
 

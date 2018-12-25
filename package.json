@@ -4,7 +4,8 @@
   "description": "Advent of Code 2018 solutions",
   "main": "index.js",
   "scripts": {
-    "day1": "node src/day1.js"
+    "day1": "node src/day1.js",
+    "day2": "node src/day2.js"
   },
   "repository": {
     "type": "git",
