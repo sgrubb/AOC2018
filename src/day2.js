@@ -26,7 +26,7 @@ const calculateChecksum = (boxIds) => {
         numbersOfDuplicatesToTrack.forEach((number) => hasDuplicates[number] = counts.includes(parseInt(number)));
     
         return hasDuplicates;
-    }
+    };
 
     const duplicateCounts = boxIds.reduce((counts, boxId) => {
         const hasDuplicateLetters = findDuplicateLetters(boxId);
@@ -39,7 +39,7 @@ const calculateChecksum = (boxIds) => {
     }, initialDuplicateCounts);
 
     return Object.values(duplicateCounts).reduce((total, number) => total * number, 1);
-}
+};
 
 const findSimilarIdsCommonLetters = (boxIds) => {
     const getCommonLetters = (boxId, otherBoxId) => {
@@ -52,7 +52,7 @@ const findSimilarIdsCommonLetters = (boxIds) => {
             }
             return commonLetters;
         }, '');
-    }
+    };
 
     return boxIds.reduce((similarIdCommonLetters, boxId, index) => {
         if (!similarIdCommonLetters) {
@@ -69,16 +69,16 @@ const findSimilarIdsCommonLetters = (boxIds) => {
         }
         return similarIdCommonLetters;
     }, null);
-}
+};
 
 try {
     const boxIds = file.readStringInputs('day2');
 
     const checksum = calculateChecksum(boxIds);
-    console.log(checksum);
+    console.log('Checksum: ' + checksum);
 
     const commonLetters = findSimilarIdsCommonLetters(boxIds);
-    console.log(commonLetters);
+    console.log('Common letters: ' + commonLetters);
 } catch (err) {
     console.log(err);
 }
