@@ -12,13 +12,13 @@ const calculateChecksum = (boxIds) => {
     const findDuplicateLetters = (boxId) => {
         const letters = Array.from(boxId);
     
-        const letterCounts = letters.reduce((counts, letter) => {
-            if (counts.hasOwnProperty(letter)) {
-                counts[letter]++;
+        const letterCounts = letters.reduce((cumulativeLetterCounts, letter) => {
+            if (!cumulativeLetterCounts.hasOwnProperty(letter)) {
+                cumulativeLetterCounts[letter] = 1;
             } else {
-                counts[letter] = 1;
+                cumulativeLetterCounts[letter]++;
             }
-            return counts;
+            return cumulativeLetterCounts;
         }, {});
     
         const counts = Object.values(letterCounts);
@@ -28,14 +28,14 @@ const calculateChecksum = (boxIds) => {
         return hasDuplicates;
     };
 
-    const duplicateCounts = boxIds.reduce((counts, boxId) => {
+    const duplicateCounts = boxIds.reduce((cumulativeDuplicateCounts, boxId) => {
         const hasDuplicateLetters = findDuplicateLetters(boxId);
         numbersOfDuplicatesToTrack.forEach((number) => {
             if (hasDuplicateLetters[number]) {
-                counts[number]++;
+                cumulativeDuplicateCounts[number]++;
             }
         });
-        return counts;
+        return cumulativeDuplicateCounts;
     }, initialDuplicateCounts);
 
     return Object.values(duplicateCounts).reduce((total, number) => total * number, 1);

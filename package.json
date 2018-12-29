@@ -6,7 +6,8 @@
   "scripts": {
     "day1": "node src/day1.js",
     "day2": "node src/day2.js",
-    "day3": "node src/day3.js"
+    "day3": "node src/day3.js",
+    "day4": "node src/day4.js"
   },
   "repository": {
     "type": "git",

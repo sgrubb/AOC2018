@@ -14,7 +14,7 @@ const parseClaims = (rawClaims) => {
             left: parseInt(claimMatches[2]),
             top: parseInt(claimMatches[3]),
             width: parseInt(claimMatches[4]),
-            height: parseInt(claimMatches[5]),
+            height: parseInt(claimMatches[5])
         };
     });
 };
@@ -26,18 +26,18 @@ const generateSquareInchCoord = (claim, i, j) => {
 };
 
 const generateClaimedSquareInches = (claims) => {
-    return claims.reduce((claimedSquares, claim) => {
+    return claims.reduce((claimedSquareInches, claim) => {
         for (let i = 0; i < claim.width; i++) {
             for (let j = 0; j < claim.height; j++) {
                 const coord = generateSquareInchCoord(claim, i, j);
-                if (claimedSquares.hasOwnProperty(coord)) {
-                    claimedSquares[coord]++;
+                if (!claimedSquareInches.hasOwnProperty(coord)) {
+                    claimedSquareInches[coord] = 1;
                 } else {
-                    claimedSquares[coord] = 1;
+                    claimedSquareInches[coord]++;
                 }
             }
         }
-        return claimedSquares;
+        return claimedSquareInches;
     }, {});
 };
 
