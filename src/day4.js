@@ -39,7 +39,7 @@ const determineGuardsSleepPeriods = (logEntries) => {
             guardsSleepPeriods[guardId] = currentGuardsSleepPeriods;
         }
         return guardsSleepPeriods;
-    }
+    };
 
     const beginsShiftRegex = /^Guard #(\d+) begins shift$/;
     return logEntries.reduce((currentInfoAndSleepPeriods, logEntry) => {
